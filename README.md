@@ -119,4 +119,3 @@ Copy the ID of the desired device for later use in the "capabilities" section of
   ```bash 
   allure serve reports
   ```
-

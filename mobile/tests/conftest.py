@@ -66,10 +66,10 @@ def get_ios_capabilities(device_name, platform_version):
 
 @pytest.fixture(scope='function', autouse=True)
 def driver(request, driver_value, device_name, udid, appium_port, platform_version):
-    grid_url = f"http://0.0.0.0:{appium_port}/wd/hub"
-    capabilities = get_ios_capabilities(device_name=device_name, platform_version=platform_version)
-    if driver_value == "android_driver":
-        capabilities = get_android_capabilities(device_name=device_name, udid=udid)
+    grid_url = f"http://localhost:{appium_port}/wd/hub"
+    capabilities = get_android_capabilities(device_name=device_name, udid=udid)
+    if driver_value == "ios_driver":
+        capabilities = get_ios_capabilities(device_name=device_name, platform_version=platform_version)
     driver = webdriver.Remote(grid_url, capabilities)
     request.cls.driver = driver
     if "android" in driver.desired_capabilities['platformName']:

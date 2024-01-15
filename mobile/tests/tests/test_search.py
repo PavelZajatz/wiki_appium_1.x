@@ -27,6 +27,3 @@ class TestSearch(BaseTest):
         self.explore_page.perform_search_text("Appium")
         results = self.explore_page.count_search_result()
         assert len(results) >= 1000, f"Should be more or equal to 1000 search results, shown - len(results)"
-
-#TODO: write Readme, push to GitHub
-#TODO: Rewrite to appium 2
